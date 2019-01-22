@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.haulmont.demo.web.task.TaskBrowse"
+        focusComponent="tasksTable"
+        lookupComponent="tasksTable"
+        messagesPack="com.haulmont.demo.web.task">
+    <dsContext>
+        <groupDatasource id="tasksDs"
+                         class="com.haulmont.demo.entity.Task"
+                         view="task-view">
+            <query>
+                <![CDATA[select e from app$Task e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <layout expand="tasksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tasksTable"
+                datasource="tasksDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tasksTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="planner"
+                        caption="Plan"
+                        icon="CALENDAR"
+                        invoke="showPlanner"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="project"/>
+                <column id="type"/>
+                <column id="priority"/>
+                <column id="estimation"/>
+                <column id="timeConsumed"/>
+                <column id="exampleTwo"/>
+                <column id="exampleThree"/>
+            </columns>
+            <rows datasource="tasksDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tasksTable.create"/>
+                <button id="removeBtn"
+                        action="tasksTable.remove"/>
+                <button id="editBtn"
+                        action="tasksTable.edit"/>
+                <button id="plannerBtn"
+                        stylename="friendly"
+                        action="tasksTable.planner"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

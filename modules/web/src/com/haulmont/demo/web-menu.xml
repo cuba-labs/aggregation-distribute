@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-app"
+          insertBefore="administration">
+        <item screen="app$Task.browse"/>
+        <item screen="app$Project.browse"/>
+    </menu>
+</menu-config>

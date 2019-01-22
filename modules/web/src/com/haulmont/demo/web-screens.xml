@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="app$Task.browse"
+            template="com/haulmont/demo/web/task/task-browse.xml"/>
+    <screen id="app$Task.planner"
+            template="com/haulmont/demo/web/planner/task-planner.xml"/>
+    <screen id="app$Task.edit"
+            template="com/haulmont/demo/web/task/task-edit.xml"/>
+    <screen id="app$Project.browse"
+            template="com/haulmont/demo/web/project/project-browse.xml"/>
+    <screen id="app$Project.edit"
+            template="com/haulmont/demo/web/project/project-edit.xml"/>
+</screen-config>

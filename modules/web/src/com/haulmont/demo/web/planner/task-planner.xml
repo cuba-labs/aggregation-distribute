@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.haulmont.demo.web.planner.TaskPlanner"
+        focusComponent="tasksTable"
+        lookupComponent="tasksTable"
+        messagesPack="com.haulmont.demo.web.planner">
+
+    <dsContext>
+        <groupDatasource id="tasksDs"
+                         class="com.haulmont.demo.entity.Task"
+                         view="task-view">
+            <query>
+                <![CDATA[select e from app$Task e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <layout expand="tasksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tasksTable"
+                datasource="tasksDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tasksTable"
+                    aggregatable="true"
+                    editable="true"
+                    reorderingAllowed="false"
+                    settingsEnabled="false"
+                    showTotalAggregation="true"
+                    width="100%">
+            <actions>
+                <action id="save" caption="Save" icon="FLAG" invoke="save"/>
+            </actions>
+            <buttonsPanel>
+                <button id="saveBtn" action="tasksTable.save"/>
+            </buttonsPanel>
+            <columns>
+                <group>
+                    <column id="type"/>
+                </group>
+                <column id="project"/>
+                <column id="priority"/>
+                <column id="name"/>
+                <column id="estimation"
+                        editable="true">
+                    <aggregation editable="true"
+                                 type="SUM"/>
+                </column>
+                <column id="timeConsumed"
+                        editable="true">
+                    <aggregation type="SUM"/>
+                </column>
+                <column id="exampleTwo"
+                        editable="true">
+                    <aggregation editable="true"
+                                 type="SUM"/>
+                </column>
+                <column id="exampleThree"
+                        editable="true">
+                    <aggregation editable="true"
+                                 type="SUM"/>
+                </column>
+            </columns>
+            <rows datasource="tasksDs"/>
+            <rowsCount/>
+        </groupTable>
+    </layout>
+</window>

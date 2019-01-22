@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.haulmont.demo.web.task.TaskEdit"
+        datasource="taskDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.haulmont.demo.web.task">
+    <dsContext>
+        <datasource id="taskDs"
+                    class="com.haulmont.demo.entity.Task"
+                    view="task-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="taskDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="project"/>
+                <field property="estimation"/>
+                <field property="timeConsumed"/>
+                <field property="type"/>
+                <field property="exampleTwo"/>
+                <field property="exampleThree"/>
+                <field property="priority"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
